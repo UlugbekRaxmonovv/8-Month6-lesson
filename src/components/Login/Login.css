@@ -1,0 +1,24 @@
+.login{
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+    gap: 20px;
+}
+.login_all button{
+    padding: 8px 32px;
+    border: none;
+    border-radius: 10px;
+    background-color: #8de931;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+.login_alll button{
+    padding: 8px 32px;
+    border: none;
+    border-radius: 10px;
+    background-color: #e97831;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
