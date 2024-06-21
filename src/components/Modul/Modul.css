@@ -39,4 +39,7 @@
     height: 40px;
     border: 1px solid #ddd;
     margin-top: 16px;
+    outline: none;
+    border-radius: 2px;
+    padding: 0 5px;
 }
