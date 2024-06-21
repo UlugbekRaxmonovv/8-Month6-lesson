@@ -4,12 +4,27 @@ import Register from './components/Register/Register'
 import Login from './components/Login/Login'
 import { Route,Routes } from 'react-router-dom'
 import Modul from './components/Modul/Modul'
+import { useGetInputValue } from './components/Hooks/useGetInputValur'
 import './App.css'
-
+import axios from './components/Api/index'
+const intialstate = {
+  UserName:"",
+  password: ""
+}
 function App() {
   const [islogin, setIsLogin] = useState(false);
-  const [isregistor, setIsregistor] = useState(false);
-  
+  const {state,setstate,handelChange} = useGetInputValue(intialstate)
+
+  const handelSubmit = (e)=>{
+    e.preventDefault();
+    setstate(intialstate);
+    axios
+    .post("/auth/sign-in", state)
+    .then(res=>{
+       localStorage.setItem("x-auth/token",res.data.data.token )
+     })
+
+}
 
  return (
     <>
@@ -17,10 +32,10 @@ function App() {
       islogin ?
       <Modul close={setIsLogin}>
       <div>
-        <form action="">
+        <form action="" onSubmit={handelSubmit}>
         <h2>Login</h2>
-          <input type="text" />
-          <input type="text" />
+          <input value={state.UserName} onChange={handelChange} name='UserName' type="text" />
+          <input value={state.password} onChange={handelChange} name='password' type="text" />
           <button>Submit</button>
         </form>
          </div>
@@ -29,30 +44,11 @@ function App() {
        <></>
     }
 
-    {
-      isregistor ?  
-      <Modul close={setIsregistor}>
-      <div>
-        <form action="">
-        <h2>Login</h2>
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <button>Submit</button>
-        </form>
-         </div>
-       </Modul>
-       :
-       <></>
-    }
+   
    
       <Routes>
         <Route path="/" element={<User />} />
-        <Route path="/register" element={<Register  btn2={setIsregistor} />} />
+        <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login btn1={setIsLogin }/>} />
       </Routes>
       
