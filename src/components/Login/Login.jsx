@@ -8,7 +8,7 @@ const Login = ({btn1}) => {
         <div  className='container'>
           <div className="login">
             <div className="login_all">
-                <button onClick={() => navigate('/')}>Logaut</button>
+                <button onClick={() => navigate('/')}>Logout</button>
             </div>
             <div className="login_alll">
                 <button onClick={() => btn1(true)}>Modal</button>

@@ -35,7 +35,7 @@ function App() {
         <form action="" onSubmit={handelSubmit}>
         <h2>Login</h2>
           <input placeholder='UserName' value={state.UserName} onChange={handelChange} name='UserName' type="text" />
-          <input placeholder="password" value={state.password} onChange={handelChange} name='password' type="text" />
+          <input placeholder="password " value={state.password} onChange={handelChange} name='password' type="text" />
           <button>Submit</button>
         </form>
          </div>
